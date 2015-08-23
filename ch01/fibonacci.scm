@@ -22,3 +22,11 @@
     )     
 )
 
+; Another definition of Fibonacci
+; see Exercise 1.13), Fib(n) is the closest integer to φ^n/√5, 
+; where φ = ( 1+√5 ) /2 ≈ 1.6180, the golden ratio
+
+(define (fib2 x)
+    (define golden_ratio ( / ( + 1 (sqrt 5)) 2))
+    (round ( / (expt golden_ratio x) (sqrt 5)))
+)
