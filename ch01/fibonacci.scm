@@ -9,9 +9,10 @@
 ; the iterative version of fibonacci
 (define (fib x)
     (define ( fib-iter f2 f1 n x )
+        (define retval (+ f1 f2))
         (if (= n x)
-            (+ f1 f2)
-            (fib-iter f1 (+ f2 f1) (+ n 1) x)
+            retval
+            (fib-iter f1 retval (+ n 1) x)
         )
     )
 

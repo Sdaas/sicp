@@ -13,9 +13,10 @@
 (define (f x)
 
     (define ( f-iter f3 f2 f1 n x )
+        (define retval (+ f1 (* 2 f2) (* 3 f3)) )
         (if (= n x)
-            (+ f1 (* 2 f2) (* 3 f3))
-            (f-iter f2 f1 (+ f1 (* 2 f2) (* 3 f3)) (+ n 1) x)
+            retval
+            (f-iter f2 f1 retval (+ n 1) x)
         )
     )
 
