@@ -5,12 +5,16 @@
 ;}
 ; return y
 
-(define (average x y) ( / (+ x y) 2))
-(define (nexty x y) (average y (/ x y)))
-(define (error x y) (- x (* y y )))
-(define (isgood x y) ( < (abs (error x y)) 0.0001 ))
-(define (sqrt-iteration x y )
-    (if (isgood x y)  y (sqrt-iteration x (nexty x y)))
-)
 
-(define (mysqrt x) (sqrt-iteration x 1))
+(define (mysqrt x) 
+    ; define all the helper functions
+    (define (average x y) ( / (+ x y) 2))
+    (define (nexty x y) (average y (/ x y)))
+    (define (error x y) (- x (* y y )))
+    (define (isgood x y) ( < (abs (error x y)) 0.0001 ))
+    (define (sqrt-iteration x y )
+        (if (isgood x y)  y (sqrt-iteration x (nexty x y)))
+    )
+    ; Now do the evaluations
+    (sqrt-iteration x 1.0)
+)
