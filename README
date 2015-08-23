@@ -1,5 +1,23 @@
-Using mit-scheme 9.2
 
+Working through all the exercises in SICP
+
+References
+----------
+Using mit-scheme 9.2
+http://www.gnu.org/software/mit-scheme/
+https://jacksonisaac.wordpress.com/2014/03/25/installing-scheme-on-mac-os-x/
+
+Scratchpad
+-----------
 scheme  -> to launch the REPL
 (load "filename.scm")   -> to load and execute the file
 (exit) -> exit the repl
+
+ToDo
+----
+Running SICP as fast failing tests 
+http://stackoverflow.com/questions/6980848/run-sicp-scheme-files-like-fast-failing-tests
+
+
+http://www.quora.com/What-are-alternatives-to-mit-scheme-to-follow-SICP
+SICP using Racket https://github.com/skanev/playground/tree/master/scheme/sicp
