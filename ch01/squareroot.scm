@@ -8,13 +8,19 @@
 
 (define (mysqrt x) 
     ; define all the helper functions
-    (define (average x y) ( / (+ x y) 2))
-    (define (nexty x y) (average y (/ x y)))
-    (define (error x y) (- x (* y y )))
-    (define (isgood x y) ( < (abs (error x y)) 0.0001 ))
-    (define (sqrt-iteration x y )
-        (if (isgood x y)  y (sqrt-iteration x (nexty x y)))
+    (define (average a b) ( / (+ a b) 2))
+    (define (error  y) (- x (* y y )))
+
+    ; compute the next estimate of y
+    (define (nexty y) (average y (/ x y)))
+    
+    ; We have a good estimate if this estimate is within 0.001 of the
+    ; previous one
+    (define (isgood y) ( < (abs (error y)) 0.0001 ))
+    
+    (define (sqrt-iteration y )
+        (if (isgood y)  y (sqrt-iteration (nexty x y)))
     )
     ; Now do the evaluations
-    (sqrt-iteration x 1.0)
+    (sqrt-iteration 1.0)
 )

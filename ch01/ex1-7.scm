@@ -1,21 +1,20 @@
-(define (mysqrt x) 
+(define (mysqrt2 x) 
 
-    (define (average x y) ( / (+ x y) 2))
-    (define (error x y) (- x (* y y )))
-
+    (define (average a b) ( / (+ a b) 2))
+    
     ; Formula to compute the next estimate of y
-    (define (nexty x y) (average y (/ x y)))
+    (define (nexty y) (average y (/ x y)))
 
     ; We have a good esimate if the current estimate is within 0.1%
     ; of the previous estimate
     (define (isgood yprev y) ( < (/ (abs (- y yprev )) yprev) 0.001 ))
 
-    (define (sqrt-iteration x yprev y)
-        (if (isgood yprev y)  y (sqrt-iteration x y (nexty x y)))
+    (define (sqrt-iteration yprev y)
+        (if (isgood yprev y)  y (sqrt-iteration y (nexty y)))
     )
     
     ; Evaluate the square root
-    (sqrt-iteration x 1 0.1)
+    (sqrt-iteration 1 0.1)
 )
 
 ; Need to be careful here about divide by zeros ...
