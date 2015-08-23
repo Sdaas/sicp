@@ -1,0 +1,5 @@
+Using mit-scheme 9.2
+
+scheme  -> to launch the REPL
+(load "filename.scm")   -> to load and execute the file
+(exit) -> exit the repl
