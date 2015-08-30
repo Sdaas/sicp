@@ -13,17 +13,12 @@ http://web.mit.edu/~axch/www/test_manager.html
 Downlaod http://web.mit.edu/~axch/www/test-manager-1.2.tar, unpack the tarball and
 load the test-manager/load.scm
 
+Debugging and Tips
+-------------------
+http://www.cs.rpi.edu/academics/courses/fall05/ai/scheme/tips.html
+
 Scratchpad
 -----------
 scheme  -> to launch the REPL
 (load "filename.scm")   -> to load and execute the file
 (exit) -> exit the repl
-
-ToDo
-----
-Running SICP as fast failing tests 
-http://stackoverflow.com/questions/6980848/run-sicp-scheme-files-like-fast-failing-tests
-
-
-http://www.quora.com/What-are-alternatives-to-mit-scheme-to-follow-SICP
-SICP using Racket https://github.com/skanev/playground/tree/master/scheme/sicp
