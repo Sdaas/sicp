@@ -7,6 +7,12 @@ Using mit-scheme 9.2
 http://www.gnu.org/software/mit-scheme/
 https://jacksonisaac.wordpress.com/2014/03/25/installing-scheme-on-mac-os-x/
 
+Unit Testing
+------------
+http://web.mit.edu/~axch/www/test_manager.html
+Downlaod http://web.mit.edu/~axch/www/test-manager-1.2.tar, unpack the tarball and
+load the test-manager/load.scm
+
 Scratchpad
 -----------
 scheme  -> to launch the REPL
