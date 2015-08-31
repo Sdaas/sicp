@@ -1,18 +1,8 @@
+(load "smallest-divisor1.scm") 
+
 ; Simple algorithm to find whether n is a prime number
 (define (prime? n)
     
-    (define (smallest-divisor n)
-        (define (iter x)
-            (cond
-                ((> (square x) n ) n) ; we have looked upto sqrt(n) and it does not divide
-                ((= 0 (remainder n x)) x )  ; clearly x divdes the number
-                (else (iter (+ x 1)))   ; does not divide. so try the next number
-            )
-        )
-
-        (iter 2); look for divisors, starting from 2
-    )
-
     ; a number is prime if its smallest divisor is the number itself
     (= n (smallest-divisor n))
 )
