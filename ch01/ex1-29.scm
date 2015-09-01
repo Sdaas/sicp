@@ -1,0 +1,15 @@
+; Simpson's Rule
+(define (simpson f a b n)
+    (define h ( / (- b a) n))
+    (define (term k)
+        (define fakh ( f ( + a (* k h))))
+        (cond
+            ( (= k 0) fakh )
+            ( (= k n) fakh )
+            ( (even? k) (* 2 fakh))
+            ( else ( * 4 fakh ))
+        )
+    )
+    (define (next k) (+ 1 k))
+    (* (/ h 3.0 ) (sum term 0 next n))
+)
