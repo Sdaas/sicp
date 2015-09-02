@@ -20,10 +20,10 @@ load the test-manager/load.scm
 
 # Running 
 
-$ scheme  -> to launch the REPL
-$ rlwrap scheme -> lanch the REPL with command history
-1 ]=>(load "filename.scm")   -> to load and execute the file
-1 ]=> (exit) -> exit the repl
+* $ scheme  -> to launch the REPL
+* $ rlwrap scheme -> lanch the REPL with command history
+* 1 ]=>(load "filename.scm")   -> to load and execute the file
+* 1 ]=> (exit) -> exit the repl
 
 
 # Debugging and Tips
