@@ -8,11 +8,12 @@
     (display pos-point)
     (newline)
 
-    (define mid-point ( / (+ neg-point pos-point) 2))
-    (cond
-        ( (< (abs (- neg-point pos-point)) 0.00001) neg-point)
-        ( (< (f mid-point) 0 ) (search f mid-point pos-point))
-        (else (search f neg-point mid-point))
+    (let ((mid-point ( / (+ neg-point pos-point) 2)))
+        (cond
+            ( (< (abs (- neg-point pos-point)) 0.00001) neg-point)
+            ( (< (f mid-point) 0 ) (search f mid-point pos-point))
+            ( else (search f neg-point mid-point))
+        )
     )
 )
 
