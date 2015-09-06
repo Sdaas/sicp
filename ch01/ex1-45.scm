@@ -1,4 +1,5 @@
 (load "fixed-point.scm")
+(load "average-damp.scm")
 (load "ex1-43.scm") ; Import the repeated function
 
 
@@ -48,7 +49,7 @@
     (define (f a)
         (lambda (y) (/ a (expt y (- n 1))))  ; <== See the power of y
     )
-    (define (calls) (floor (/ (log n) (log 2))))  ;
+    (define calls (floor (/ (log n) (log 2))))  ;
     (fixed-point ((repeated average-damp calls) (f x)) 1.0)
 )
 
