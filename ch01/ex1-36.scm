@@ -3,11 +3,23 @@
 ; x = log(1000) / log(x)     
 
 (load "fixed-point.scm")
+(load "average-damp.scm"); 
 
-; The golden point is the fixed point of f(x) = 1 + 1/x
-(define (solve-xtox= n)
-    (fixed-point (lambda (x) (/ (log n) (log x))) 2.0) ; cant start from 1 since log(1) = 0
+; Simple solution to xtox - no average damping used
+(define (solve-xtox-v1 x)
+    (define (f a)
+        (lambda (y) (/ (log a) (log y)))
+    )
+    (fixed-point (f x) 2.0) ; cant start from 1 since log(1) = 0
 )
 
-(solve-xtox= 1000)
+; Using average damp. Note that this solution converges must faster
+(define (solve-xtox x)
+    (define (f a)
+        (lambda (y) (/ (log a) (log y)))
+    )
+    (fixed-point (average-damp (f x)) 2.0) ; cant start from 1 since log(1) = 0
+)
+
+(solve-xtox 1000)
 

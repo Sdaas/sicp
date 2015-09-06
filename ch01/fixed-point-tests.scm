@@ -1,8 +1,9 @@
 (load "fixed-point.scm")
+(load "average-damp.scm")
 
 ; y = sqrt(x) => y^2 = x  =>  y = x / y 
 (define (mysqrt x)
-    (fixed-point  (lambda (y) (/ x y)) 1.0 )
+    (fixed-point  (average-damp (lambda (y) (/ x y))) 1.0 )
 )
 
 ; All the unit tests

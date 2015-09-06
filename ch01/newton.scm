@@ -1,10 +1,11 @@
 ; 1.3.4 Procedures as returned values
 (load "fixed-point.scm")
+(load "average-damp.scm")
 (load "derive.scm")
 
 (define (newtons-method f guess)
     (fixed-point
-        (lambda (x) ( - x ( / (f x) ((derive f) x))))
+        (average-damp (lambda (x) ( - x ( / (f x) ((derive f) x)))) )
         guess 
     )
 )
