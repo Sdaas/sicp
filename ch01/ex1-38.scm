@@ -22,7 +22,7 @@
             1
         )
     )
-    (+ 2 (cont-frac identity dfunc 100))
+    (+ 2 (cont-frac identity dfunc 100 +))
 )
 
 
