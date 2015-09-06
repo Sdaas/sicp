@@ -1,0 +1,5 @@
+; When there is no damping next-guess = f(guess)
+; With one level of damping next-guess = average( guess, f(guess))
+(define (average-damp f)
+    (lambda (x) ( / (+ x (f x)) 2))
+)
