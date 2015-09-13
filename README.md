@@ -31,3 +31,4 @@ load the test-manager/load.scm
 
 
 
+http://www.billthelizard.com/search/label/sicp
