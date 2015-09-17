@@ -39,7 +39,13 @@
 ; Substituting y for x ..
 ; ( (m f) ((n f) x)  seems to wrap f m+n times around x => which means it it the "m+n" number
 
+; Adds two church numerals
 (define (add m n)
     (lambda (f) (lambda (x) ((m f) ((n f) x))))
 )
 
+; Returns the integer value of a church numeral
+(define (integer n)
+    (define (inc x) (+ x 1))
+    ((n inc) 0)
+)

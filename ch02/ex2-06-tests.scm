@@ -18,3 +18,9 @@
 (newline)
 ((three print) "dummy") ; should print X 3 times
 (newline)
+
+(define five (add two three))
+(define ten (add five five))
+
+(integer five)
+(integer ten)
