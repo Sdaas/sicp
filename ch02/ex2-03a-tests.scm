@@ -20,6 +20,21 @@
     (check (= (perimeter-rectangle r2) 22) "Area should be 22")
 )
 
+
+(define-test (rectangle3)
+    (define p1 (make-point 1 2 ))
+    (define r1 (make-rectangle2 p1 10 20))
+    (check (= (area-rectangle r1) 200) "Area should be 200")
+    (check (= (perimeter-rectangle r1) 60) "Area should be 60")
+)
+
+(define-test (rectangle4)
+    (define p1 (make-point -2 -2 ))
+    (define r2 (make-rectangle2 p1 3 7))
+    (check (= (area-rectangle r2) 21) "Area should be 21")
+    (check (= (perimeter-rectangle r2) 20) "Area should be 20")
+)
+
 ; run all the tests
 (run-registered-tests)
 
