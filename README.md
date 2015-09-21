@@ -27,8 +27,8 @@ load the test-manager/load.scm
 
 
 # Debugging and Tips
-1. http://www.cs.rpi.edu/academics/courses/fall05/ai/scheme/tips.html
+* http://www.cs.rpi.edu/academics/courses/fall05/ai/scheme/tips.html
 
-
-
-http://www.billthelizard.com/search/label/sicp
+# References
+* [All primitive procedures in Scheme] (http://jscheme.sourceforge.net/jscheme/doc/R4RSprimitives.html)
+* [SICP exercises by Bill The Lizard] (http://www.billthelizard.com/search/label/sicp)
