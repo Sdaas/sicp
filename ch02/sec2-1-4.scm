@@ -2,7 +2,19 @@
 
 (define (make-interval a b) (cons a b))
 
+(define (make-center-width c w)
+    (make-interval (- c w) (+ c w))
+)
+
 (load "ex2-07.scm") ; for defn of upper- and lower-bound selectors
+
+(define (center x)
+    ( / (+ (upper-bound x) (lower-bound x)) 2)
+)
+
+(define (width x)
+       ( / (- (upper-bound x) (lower-bound x)) 2)   
+)
 
 (define (add-interval x y)
     (make-interval (+ (lower-bound x) (lower-bound y))
@@ -18,5 +30,6 @@
         (make-interval (min p1 p2 p3 p4) (max p1 p2 p3 p4))
     )
 )
+
 
 (load "ex2-10.scm")
