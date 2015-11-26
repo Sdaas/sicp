@@ -16,6 +16,9 @@
     (check (equal? (list 3) (last-pair x)) "The list should contain the last element of list")
 )
 
+(define-test (test3)
+    (check (equal? (list 34) (last-pair (list 23 72 149 34))) "The result shoudl contain the last element of the list")
+)
 ; run all the tests
 (run-registered-tests)
 
