@@ -34,5 +34,10 @@
     (check (= 6 (count-leaves items)) "expected answer to be 10")
 )
 
+; empty list
+(define-test (test6)
+    (define items (list))
+    (check (= 0 (count-leaves items)) "expected answer to be 0")
+)
 ; run all the tests
 (run-registered-tests)
