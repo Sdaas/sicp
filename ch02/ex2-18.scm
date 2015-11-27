@@ -1,21 +1,13 @@
 (load "ex2-17.scm") ; to reuse last-pair
+(load "append.scm") ; defines a function to append a number to the end of the list
 
 ; Define a procedure reverse that returns a list of the same elements in the reversed order
-
-
-(define (append1 list1 n)
-    (if (null? list1)
-        (list n)
-        (cons (car list1) (append1 (cdr list1) n))
-    )
-)
-
 
 ;reverse a list
 (define (reverse1 x)
     (if (null? (cdr x)) ; i.e., if x has only one element
         x
-        (append1 (reverse1 (cdr x)) (car x))
+        (my-append (reverse1 (cdr x)) (car x))
     )
 )
 
