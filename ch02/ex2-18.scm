@@ -5,7 +5,7 @@
 
 ;reverse a list
 (define (reverse1 x)
-    (if (null? (cdr x)) ; i.e., if x has only one element
+    (if (null? x) ; i.e., if x has only one element
         x
         (my-append (reverse1 (cdr x)) (car x))
     )
