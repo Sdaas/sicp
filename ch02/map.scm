@@ -2,10 +2,10 @@
 
 ; Apply the function f on each element of the list x
 ; BTW, scheme already has a map function, so we call this my-map
-(define (my-map f x)
-    (if (null? x)
-        x
-        (cons (f (car x)) (my-map f (cdr x)))
+(define (my-map f items)
+    (if (null? items)
+        (list) ; create and return an empty list
+        (cons (f (car items)) (my-map f (cdr items)))
     )
 )
 
