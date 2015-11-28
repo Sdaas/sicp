@@ -58,6 +58,14 @@
     (check (equal? expected (deep-reverse items)) "should have been deep reversed")
 )
 
+; nested lists
+(define-test (test7)
+    (define items (list (list 1 2) 3 (list (list 4 5) 6)))
+    (define expected (list (list 6 (list 5 4)) 3 (list 2 1)))
+    (check (equal? expected (deep-reverse items)) "should have been deep reversed")
+)
+
+
 ; run all the tests
 (run-registered-tests)
 
