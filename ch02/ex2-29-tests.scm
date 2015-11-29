@@ -69,7 +69,63 @@
     )
 )
 
+(in-test-group balance-tests
+    ;check the balance of a simple mobile
+    (define-test (balance-test1)  
+        (define lb (make-branch 5 10))
+        (define rb (make-branch 10 5))
+        (define mobile (make-mobile lb rb))
+        (check (balanced? mobile) "this should be a balanced mobile")
+    )
 
+    ;check the balance of a simple mobile
+    (define-test (balance-test2)  
+        (define lb (make-branch 2 10))
+        (define rb (make-branch 10 5))
+        (define mobile (make-mobile lb rb))   
+        (check (not (balanced? mobile)) "this should not be a balanced mobile")
+    )
+
+    ; create another balanced tree ((2 20) (4 ((1 5 )(1 5))))
+    (define-test (balance-test3)  
+        (define lb (make-branch 2 20)) ; 2*20
+        (define rb (make-branch 4 (make-mobile (make-branch 1 5) (make-branch 1 5)))) ; 4*10
+        (define mobile (make-mobile lb rb))  
+        (check (balanced? mobile) "this should be balanced mobile")
+    )
+
+    ; create another balanced tree ((2 ((1 10) (1 10))) (4 10))
+    (define-test (balance-test4)  
+        (define lb (make-branch 2 (make-mobile (make-branch 1 10) (make-branch 1 10)))) ; 2*20
+        (define rb (make-branch 4 10)) ; 4*10
+        (define mobile (make-mobile lb rb)) 
+        (check (balanced? mobile) "this should be balanced mobile")
+    )
+
+    (define-test (balance-test5)  
+        (define lb (make-branch 2 (make-mobile (make-branch 1 10) (make-branch 1 10))))
+        (define rb (make-branch 4 (make-mobile (make-branch 1 5) (make-branch 1 5))))
+        (define mobile (make-mobile lb rb)) 
+        (check (balanced? mobile) "this should be balanced mobile")
+    )
+
+    ; create another unbalanced tree ((2 20) (4 ((1 3 )(1 7))))
+    ; it is balanced from a weights perspective. But notice that the right branch is unbalanced, so the
+    ; mobile as a whole will be unbalanced
+    (define-test (balance-test6)  
+        (define lb (make-branch 2 20)) ; 2*20
+        (define rb (make-branch 4 (make-mobile (make-branch 1 3) (make-branch 1 7)))) ; 4*10
+        (define mobile (make-mobile lb rb))
+        (check (not (balanced? mobile)) "this should NOT be balanced mobile")
+    )
+
+    (define-test (balance-test7)  
+        (define lb (make-branch 4 (make-mobile (make-branch 1 3) (make-branch 1 7)))) ; 4*10
+        (define rb (make-branch 2 20)) ; 2*20
+        (define mobile (make-mobile lb rb))
+        (check (not (balanced? mobile)) "this should NOT be balanced mobile")
+    )
+)
 
 ; 
 ; run all the tests
