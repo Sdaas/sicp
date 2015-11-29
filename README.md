@@ -32,5 +32,6 @@ load the test-manager/load.scm
 
 * [MIT Scheme] (http://www.gnu.org/software/mit-scheme/)
 * [All primitive procedures in Scheme] (http://jscheme.sourceforge.net/jscheme/doc/R4RSprimitives.html)
+* [Unit Testing Framework](http://web.mit.edu/~axch/www/test_manager.html)
 * [Debugging and Tips] (http://www.cs.rpi.edu/academics/courses/fall05/ai/scheme/tips.html)
 * [SICP exercises by Bill The Lizard] (http://www.billthelizard.com/search/label/sicp)
