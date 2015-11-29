@@ -1,23 +1,27 @@
 
 
 ; make a mobile out of the (given) left and right branches
-(define (make-mobile left right) (list left right))
+;(define (make-mobile left right) (list left right))
+(define (make-mobile left right) (cons left right))
 
 ; get the left-branch of the mobile
 (define (left-branch mobile) (car mobile))
 
 ; get the right branch of the mobile
-(define (right-branch mobile) (car (cdr mobile)))
+;(define (right-branch mobile) (car (cdr mobile)))
+(define (right-branch mobile) (cdr mobile))
 
 ; make branch. a branch consists of a length and a "structure". The struture may either
 ; be a number 
-(define (make-branch length structure) (list length structure))
+;(define (make-branch length structure) (list length structure))
+(define (make-branch length structure) (cons length structure))
 
 ; get the length of a branch
 (define (branch-length branch) (car branch))
 
 ; get the structure part of a branch
-(define (branch-structure branch) (car (cdr branch)))
+;(define (branch-structure branch) (car (cdr branch)))
+(define (branch-structure branch) (cdr branch))
 
 ;determine if the structure part of a branch contains a structure/mobile or a weight
 (define (structure? s)
