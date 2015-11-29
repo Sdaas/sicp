@@ -19,12 +19,17 @@
 ; get the structure part of a branch
 (define (branch-structure branch) (car (cdr branch)))
 
+;determine if the structure part of a branch contains a structure/mobile or a weight
+(define (structure? s)
+    (pair? s)
+)
+
 ; The total weight under a branch
 (define (total-branch-weight branch)
     ; If the branch contains a structure (aka mobile) then compute the total weight of that structure
     ; otherwise it contains a weight and just return the weight
     (define s (branch-structure branch))
-    (if (pair? s)
+    (if (structure? s)
         (+ (total-branch-weight (left-branch s)) (total-branch-weight (right-branch s)))
         s
     )
@@ -43,7 +48,7 @@
 
     (define (balanced-branch? branch)
         (define s (branch-structure branch))
-        (if (pair? s)
+        (if (structure? s)
             (balanced? s)
             true
         )
