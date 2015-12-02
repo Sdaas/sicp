@@ -2,10 +2,21 @@
 
 ; The classic filter function. 
 
-; Apply the function f on each element of the list x, and return a list of
-; only those elements for which the function f evals to true
-; BTW, scheme already has a filter function, so we call this my-filter
-(define (my-filter f x)
+; Filter "items" based on predicate, and return  new list that contain only the matching elements
+(define (my-filter predicate items)
+    
+    (cond
+        ( (null? items) items)
+        ( (predicate (car items)) (cons (car items) (filter predicate (cdr items))))
+        ( else (filter predicate (cdr items)))
+    )
+)
+
+;Remember that (cons n x)  can be used to append the list 
+; x to the number n. However, (cons x n) will just lead to the creation of a pair 
+; that contains x and n
+
+(define (my-filter-old-version f x)
     
     (define (inner inlist outlist)
         ;(print "inner called with " inlist " " outlist "\n");
@@ -20,7 +31,3 @@
     
     (inner x (list ))
 )
-
-;Remember that (cons n x)  can be used to append the list 
-; x to the number n. However, (cons x n) will just lead to the creation of a pair 
-; that contains x and n
