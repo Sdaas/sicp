@@ -15,11 +15,11 @@
     (define-test (test2)  
         (define items (list 10))
         (define (double x) (* x 2))
-        (define expected (list))
+        (define expected (list 20))
         (check (equal? expected (map33 double items)))
     )
 
-    (define-test (test2)  
+    (define-test (test3)  
         (define empty (list))
         (define (double x) (* x 2))
         (check (equal? empty (map33 double empty)))
@@ -53,7 +53,7 @@
     )
 
     ; append an empty list to an empty list
-    (define-test (test3)
+    (define-test (test4)
         (define empty (list))
         (check (equal? empty (append33 empty empty)))
     )
