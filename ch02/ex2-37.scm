@@ -38,20 +38,14 @@
 ; m => matrix, v => column vector
 (define (matrix-*-vector m v)
    (define vr (car (transpose v)))  ; now vr is a row vector
-   (map (lambda (x) (list (dot-product x vr))) m )    
+   (map (lambda (y) (list (dot-product y vr))) m )    
 )
 
-; M x N  = [ m1; m2; m3] x N = [ m1*N; m2*N ; m3*N ]
-; 
-; But m1*N = (transpose N' * m1' )
-(define (matrix-*-matrix m n)
-    (define nt (transpose n))
-    (map (lambda (x) (car (transpose (matrix-*-vector nt (transpose (list x)))))) m )
-) 
 
+; The simplest ( most intuitive ) version ...
 ; M x ( v1 v2 v3) =>  ( M*v1 M*v2 M*v3)
 ; M x ( v1 [v2 v3]) => ( M*v1  M*[v2 v3])
-(define (matrix-*-matrix2 m n)
+(define (matrix-*-matrix3 m n)
     ;(print "multiply called") (newline)
     ;(print "m: " m ) (newline)
     ;(print "n: " n ) (newline)
@@ -61,5 +55,22 @@
     )
 )
 
+; A different way to do the same ...
+; M x N  = [ m1; m2; m3] x N = [ m1*N; m2*N ; m3*N ]
+; But m1*N = (transpose N' * m1' )
+(define (matrix-*-matrix2 m n)
+    (define nt (transpose n))
+    (map (lambda (x) (car (transpose (matrix-*-vector nt (transpose (list x)))))) m )
+) 
 
+; The previous version has too many transposes and conversions to-from lists .. so
+; lets get rid of those. 
+(define (matrix-*-matrix m n)
+    (define nt (transpose n))
+    (map (lambda (x) 
+            (car (transpose 
+                (map (lambda (y) (list (dot-product y x))) nt ) 
+            )))
+    m )
+)
 

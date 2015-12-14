@@ -19,6 +19,12 @@
         (check (equal? mt (transpose m)))
     )
 
+    (define-test (transpose-of-traspose)
+        (define m (list (list 1 2 3)
+                        (list 4 5 6)))
+        (check (equal? m (transpose (transpose m))))
+    )
+
     (define-test (transpose-2x2)
         (define m (list (list 1 2)
                         (list 4 5)))
@@ -130,6 +136,13 @@
         (define m (list (list 1 2) (list 4 5)))
         (define n (list (list 5 6) (list 7 8)))
         (define r (list (list 19 22) (list 55 64)))
+        (check (equal? r (matrix-*-matrix m n)))
+    )
+
+    (define-test (test4)
+        (define m (list (list 1 2 3) (list 4 5 6)))
+        (define n (list (list 1 3) (list 4 9) (list 6 2)))
+        (define r (list (list 27 27) (list 60 69)))
         (check (equal? r (matrix-*-matrix m n)))
     )
 )
