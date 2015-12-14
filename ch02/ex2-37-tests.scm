@@ -3,34 +3,6 @@
 ; Load the unit testing framework
 (load "../test-manager/load.scm")
 
-(in-test-group dot-product-tests
-    
-    ; Simple dot product - two row vectors
-    (define-test (test1)
-        (define x (list 1 2 3))
-        (define y (list (list 4) (list 5) (list 6))) ; column vector
-        (check (= 32 (dot-product x y)))
-    )
-)
-
-(in-test-group matrix-*-vector-tests
-    (define-test (test1)
-        (define m (list (list 1 2 3)
-                        (list 4 5 6)))
-        (define v (list (list 1) (list 2) (list 3))) ; column vector
-        (check (equal? (list (list 14) (list 32)) (matrix-*-vector m v)))
-    )
-
-    (define-test (test2)
-        (define m (list (list 1 2 3)
-                    (list 4 5 6)
-                    (list 7 8 9)
-                    (list 1 2 1)))
-        (define v (list (list 1) (list 2) (list 1))) ; column vector
-        (check (equal? (list (list 8) (list 20) (list 32) (list 6)) (matrix-*-vector m v)))
-    )
-)
-
 (in-test-group transpose-tests
 
     (define-test (transpose-null-matrix)
@@ -111,6 +83,34 @@
     )
 )
 
+(in-test-group dot-product-tests
+    
+    ; Simple dot product - two row vectors
+    (define-test (test1)
+        (define x (list 1 2 3))
+        (define y (list 4 5 6)) 
+        (check (= 32 (dot-product x y)))
+    )
+)
+
+(in-test-group matrix-*-vector-tests
+    (define-test (test1)
+        (define m (list (list 1 2 3)
+                        (list 4 5 6)))
+        (define v (list (list 1) (list 2) (list 3))) ; column vector
+        (check (equal? (list (list 14) (list 32)) (matrix-*-vector m v)))
+    )
+
+    (define-test (test2)
+        (define m (list (list 1 2 3)
+                    (list 4 5 6)
+                    (list 7 8 9)
+                    (list 1 2 1)))
+        (define v (list (list 1) (list 2) (list 1))) ; column vector
+        (check (equal? (list (list 8) (list 20) (list 32) (list 6)) (matrix-*-vector m v)))
+    )
+)
+
 (in-test-group matrix-multiply-tests
     ; multiply a matrix with the identity matrix
     (define-test (ident-test1)
@@ -136,4 +136,4 @@
 
 ; run all the tests
 (run-registered-tests)
-;(run-test '(first-column-tests))
+;(run-test '(matrix-*-vector-tests))
