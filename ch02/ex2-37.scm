@@ -41,10 +41,17 @@
    (map (lambda (x) (list (dot-product x vr))) m )    
 )
 
+; M x N  = [ m1; m2; m3] x N = [ m1*N; m2*N ; m3*N ]
+; 
+; But m1*N = (transpose N' * m1' )
+(define (matrix-*-matrix m n)
+    (define nt (transpose n))
+    (map (lambda (x) (car (transpose (matrix-*-vector nt (transpose (list x)))))) m )
+) 
 
 ; M x ( v1 v2 v3) =>  ( M*v1 M*v2 M*v3)
 ; M x ( v1 [v2 v3]) => ( M*v1  M*[v2 v3])
-(define (matrix-*-matrix m n)
+(define (matrix-*-matrix2 m n)
     ;(print "multiply called") (newline)
     ;(print "m: " m ) (newline)
     ;(print "n: " n ) (newline)
